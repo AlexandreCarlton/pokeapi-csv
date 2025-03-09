@@ -1,0 +1,32 @@
+[project]
+name = "pokeapi-csv"
+version = "0.1.0"
+description = "Persists PokeAPI's data to .csv files for later processing."
+readme = "README.md"
+authors = [
+    { name = "Alexandre Carlton" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "pokeapi-py",
+    "testcontainers>=4.9.2",
+]
+classifiers = [
+    "Private :: Do Not Upload"
+]
+
+[project.scripts]
+pokeapi-csv = "pokeapi_csv.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.uv.sources]
+pokeapi-py = { git = "https://github.com/AlexandreCarlton/pokeapi-py.git" }
+
+[dependency-groups]
+dev = [
+    "mypy>=1.15.0",
+    "ruff>=0.9.10",
+]
